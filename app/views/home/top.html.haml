@@ -1,11 +1,4 @@
-%header
-  .header-logo
-    %a{:href => "/home/top"} パン屋探索
-  %ul.header-menus
-    %li
-      %a{:href => "/home/about"} パン屋探索とは
-
 .about-main
   %h2 パン屋探索アプリ
   %input{:name => "text", :placeholder => "パンの名前を入れてね", :type => "text"}/
-  %a{:href => "/post/index"} 探索開始
+  = link_to("探索開始", "/post/index")
