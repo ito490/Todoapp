@@ -9,4 +9,10 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+      .header-logo
+        = link_to("パン屋探索", "/home/top")
+      %ul.header-menus
+        %li
+          = link_to("パン屋探索とは", "/home/about")
+  = yield

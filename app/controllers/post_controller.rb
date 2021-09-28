@@ -1,10 +1,9 @@
 class PostController < ApplicationController
   def index
-    @posts = [
-      "#クリームパン, #自家製",
-      "#くるみパン, #粒大きい",
-      "#食パン, #生食パン",
-      "#クリームパン, #自家製"
-    ]
+    @posts = Post.all
+  end
+
+  def show
+    @post = Post.find_by(id: params[:id])
   end
 end
