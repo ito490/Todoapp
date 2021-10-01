@@ -1,7 +1,8 @@
 .main.posts-new
   .container
     %h1.form-heading みんなに発信
-    .form
-      .form-body
-        %textarea
-        %input{:type => "submit", :value => "投稿"}/
+    = form_tag("/post/create") do
+      .form
+        .form-body
+          %textarea{:name => "content"}
+          %input{:type => "submit", :value => "発信"}/
