@@ -5,3 +5,5 @@
         = @post.content
       .post-time
         = @post.created_at
+        .post-menus
+          = link_to("編集", "/post/#{@post.id}/edit")
