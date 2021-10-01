@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "post/create" => "post#create"
   get "post/:id/edit" => "post#edit"
   post "post/:id/update" => "post#update"
+  post "post/:id/destroy" => "post#destroy"
   get "home/top"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "home/about"

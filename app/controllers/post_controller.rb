@@ -28,4 +28,11 @@ class PostController < ApplicationController
     
     redirect_to("/post/index")
   end
+
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    
+    redirect_to("/post/index")
+  end
 end
