@@ -25,8 +25,11 @@ class PostController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
     @post.save
-    
-    redirect_to("/post/index")
+    if @post.save
+      redirect_to("/post/index")
+    else
+      render("post/edit")
+    end
   end
 
   def destroy
