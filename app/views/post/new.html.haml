@@ -4,5 +4,8 @@
     = form_tag("/post/create") do
       .form
         .form-body
+          - @post.errors.full_messages.each do |message|
+            .form-error
+              = message
           %textarea{:name => "content"}
           %input{:type => "submit", :value => "発信"}/
