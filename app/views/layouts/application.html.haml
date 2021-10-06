@@ -17,4 +17,9 @@
           = link_to("パン屋探索とは", "/home/about")
         %li
           = link_to("新規投稿", "/post/new")
+        %li
+          = link_to("探索一覧", "/post/index")
+    - if flash[:notice]
+      .flash
+        = flash[:notice]
   = yield
