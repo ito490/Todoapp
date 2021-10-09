@@ -3,3 +3,4 @@
     .user
       %h2= @user.name
       %p= @user.email
+      = link_to("編集", "/users/#{@user.id}/edit")
