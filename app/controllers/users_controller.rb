@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name], 
       email: params[:email],
-      image_name: "pan_default_user.png"
+      image_name: "pan_default_user.png",
+      password: params[:password]
       )
     if @user.save
       flash[:notice] = "ユーザー登録が完了しました"
@@ -38,12 +39,28 @@ class UsersController < ApplicationController
       image = params[:image]
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
-
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
     else
       render("users/edit")
+    end
+  end
+
+  def login_form
+  end
+
+  def login
+    @user = User.find_by(email: params[:email], password: params[:password])
+    if @user
+      session[:user_id] = @user.id
+      flash[:notice] = "ログインしました"
+      redirect_to("/post/index")
+    else
+      @error_message = "メールアドレスまたはパスワードが間違えています"
+      @email = params[:email]
+      @password = params[:password]
+      render("users/login_form")
     end
   end
 end
