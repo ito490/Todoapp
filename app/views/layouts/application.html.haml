@@ -13,6 +13,10 @@
       .header-logo
         = link_to("パン屋探索", "/home/top")
       %ul.header-menus
+        - if session[:user_id]
+          %li
+            現在ログインしているユーザーのid:
+            \#{session[:user_id]}
         %li
           = link_to("パン屋探索とは", "/home/about")
         %li
@@ -23,6 +27,8 @@
           = link_to("ユーザー一覧", "/users/index")
         %li
           = link_to("新規登録", "/signup")
+        %li
+          = link_to("ログイン", "/login")
     - if flash[:notice]
       .flash
         = flash[:notice]
