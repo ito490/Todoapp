@@ -7,9 +7,10 @@
       - if @user.id == @current_user.id
         = link_to("編集", "/users/#{@user.id}/edit")
     %ul.user-tabs
-      %li.active= link_to("投稿", "/users/#{@user.id}")
-      %li= link_to("いいね!", "/users/#{@user.id}/likes")
-    - @user.posts.each do |post|
+      %li= link_to("投稿", "/users/#{@user.id}")
+      %li.active= link_to("いいね!", "/users/#{@user.id}/likes")
+    - @likes.each do |like|
+      - post = Post.find_by(id: like.post_id)
       .posts-index-item
         .post-left
           %img{:src => "/user_images/#{post.user.image_name}"}/
